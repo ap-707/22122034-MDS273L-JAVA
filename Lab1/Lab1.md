@@ -54,7 +54,7 @@ String[] eastern_states = {"Arunachal Pradesh", "Assam", "Manipur", "Meghalaya",
 String[] west_states = {"Goa", "Gujarat", "Maharashtra", "Daman", "Diu", "Dadra Nagar Haveli"};
 
 // Assign Region.
-for (String s : north_states) {
+for (String s : north_states) { 
     if (state_.equalsIgnoreCase(s)) {
         region = "North";
         break;
