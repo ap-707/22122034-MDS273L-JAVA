@@ -7,6 +7,7 @@ Identify if the employee belongs to the top MNC Companies (Facebook, Google, Mic
 Note: Your program should be neatly organized, with appropriate comments, variable names, proper input output formatting, and necessary validations.
 
 -------------------------OUTPUT----------------------
+  
 Enter Employee's Detail:
   
 Name :Ashish
