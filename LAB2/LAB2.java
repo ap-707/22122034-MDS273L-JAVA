@@ -1,5 +1,5 @@
+import java.util.Arrays;
 import java.util.Scanner;
-
 public class LAB2{
 	public static void main(String[] args){
 		Scanner sc = new Scanner(System.in);
@@ -7,13 +7,16 @@ public class LAB2{
 		int k = 0;
 
 		String[] arr = new String[1024];
+		String[] newarr = new String[arr.length-1];
+		boolean flag = true;
 
-		char[] specialChar = {'@','!','#','$','%','^','&','*','(',')',,'_',' ','+','='}
+		char[] specialChar = {'@','!','#','$','%','^','&','*','(',')','_',' ','+','='};
 
 		String search;
 
 		String DeleteName;
-		int indexed;
+		int sIndex;
+
 
 		do{
 			System.out.println("-----------------------------------");
@@ -22,101 +25,105 @@ public class LAB2{
 			System.out.println("3.Remove a name");
 			System.out.println("0.Exit");
 			System.out.println("-----------------------------------");
+			
 
+			System.out.println();
+			System.out.print("Enter Your Choice:");
 			int choice = Integer.parseInt(sc.nextLine());
 	
-			swich(choice){
+			switch (choice) {
 
-				case 1:
-						System.out.println("Enter the name:");
+				case 1: {
+					Boolean valiedName = false;
+					Boolean ExistName = false;
 
-						String name = sc.nextLine();
-					
-						for(char j : specialChar){
-							if(name.contains(j)){
-								break;
-							}
+					System.out.println("Enter the name:");
+
+					String name = sc.nextLine();
+
+					for (char j : specialChar) {
+						if (name.contains(Character.toString(j))) {
+							System.out.println("Please enter valied Name.");
+							valiedName = false;
+							break;
+						} else {
+							valiedName = true;
 						}
-			
-	
-						for(String s : arr){
-							if(s.equalsIgnoreCase(name)){
-								System.out.println(name+" already exist in the list.");
-								System.out.println("Please enter different name.");
-								break;
-							}else{
-								arr.add(name);
-								System.out.println(name+" added into the list.");
-							}
-						}						
+					}
 
-						
-						k = k+1;
-						
-						break;
-
-				case 2:
-						System.out.print("Search: ");
-
-						search = sc.nectLine();
-
-						System.out.println("Searching for a name...");
-
-						for(String searhing : arr){
-							if(searhing == search){
-								System.out.println(search+ " is in the list at " +arr.indexOf(search) + "th index");
-							}else{continue;}
+					for (String s : arr) {
+						if (name.equalsIgnoreCase(s)) {
+							System.out.println(name + " already exist in the list.");
+							System.out.println("Please enter different name.");
+							ExistName = true;
+							break;
 						}
-		
-						break;
+					}
 
-				case 3:
+					if (valiedName && ExistName == false) {
+						arr[k++] = name;
+						System.out.println(name + " added into the list.");
+					}
 
-						System.out.print("------------------------------------");
-						System.out.print("1 -> delete name by index.");
-						System.out.print("2 -> delete name by value.");
-						System.out.print("------------------------------------");
-						System.out.print("Enter choice: ");
-						
-						int choice2 = Integer.parseInt(sc.nextInt());
+					System.out.println("Name: " + Arrays.toString(arr));
 
-						swich(choice2){
-							case 1:
-								indexed = Integer.parseInt(sc.nextLine());
-								System.out.print("Enter Index: ");
-								arr.remove(Integer.valueOf(indexed));
-								System.out.println("-----------------------------------")
-								System.out.println("Name Successfully Removed.")
-								System.out.println("-----------------------------------")
-								break;
+					break;
+				}
+				case 2: {
+					System.out.print("Search: ");
 
-							case 2:
-								System.out.print("Enter name: ");
-								DeleteName = sc.nextLine();
+					search = sc.nextLine();
 
+					System.out.println("Searching for a name...");
 
-								indexed = Integer.parseInt(sc.nextLine());
-								System.out.print("Enter Index: ");
-								arr.remove(Integer.valueOf(indexed));
-								System.out.println("-----------------------------------")
-								System.out.println("Name Successfully Removed.")
-								System.out.println("-----------------------------------")
-
-								break;
-
-							default:
-								break;
+					sIndex = 0;
+					for (String s : arr) {
+						sIndex++;
+						if (search.equalsIgnoreCase(s)) {
+							System.out.println(search + " is in the list at " + sIndex + "th position");
+							break;
 						}
-						
-						break;
-			
-				case 0:
-						flag == false;
-						break;
-				default:
-						System.out.println("Please enter valied input.");
-						break;
+					}
+
+					break;
+				}
+				case 3: {
+					System.out.print("Enter name: ");
+
+					DeleteName = sc.nextLine();
+
+					for (int i = 0, p = 0; i < arr.length; i++) {
+						if (arr[i] == DeleteName) {
+							arr[i] = arr[arr.length-1];
+						}
+					}
+//					int zz = 0;
+//					for(String s : arr){
+//						if (s  == DeleteName){
+//							continue;
+//						}else{
+//							newarr[zz++] = s;
+//						}
+//					}
+
+//					System.out.println("Array : " + Arrays.toString(newarr));
+					System.out.println("\n-----------------------------------");
+					System.out.println("Name Successfully Removed.");
+					for (int i = 0; i < k; i++) {
+						System.out.print(arr[i] + ",");
+					}
+					System.out.println("\n-----------------------------------\n");
+					break;
+				}
+				case 0: {
+					flag = false;
+					break;
+				}
+				default: {
+					System.out.println("\nPlease enter valied input.\n");
+					break;
+				}
 			}
-		}while(flag == true);
+		}while(flag);
 	}
 }
