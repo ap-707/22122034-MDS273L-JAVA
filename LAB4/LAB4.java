@@ -1,6 +1,7 @@
 import java.util.Scanner;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
+
 public class LAB4 {
 
     public static final Scanner sc = new Scanner(System.in);
@@ -15,7 +16,7 @@ public class LAB4 {
 
 //  ------------------User Defne Function---------------------
 static void InitializeTheCustomer(){
-    System.out.println("______________________________\n1. Initialize the customer\n````````````````````````````````\n");
+    System.out.println("______________________________\n1. Initialize the customer\n````````````````````````````````");
 
     System.out.print("\nEnter customer name:");
     AccountHolder = sc.nextLine();
@@ -26,12 +27,12 @@ static void InitializeTheCustomer(){
     System.out.print("\nEnter Balance:");
     AccountBalance = Integer.parseInt(sc.nextLine());
 
-    System.out.println("______________________________\nCustomer added Successfully\n````````````````````````````````\n");
+    System.out.println("______________________________\nCustomer added Successfully\n````````````````````````````````");
 
 }
 
 static void depositMoney(){
-    System.out.println("______________________________\n2. Deposit Money\n````````````````````````````````\n");
+    System.out.println("______________________________\n2. Deposit Money\n````````````````````````````````");
 
     System.out.print("Enter Amount: ");
     int deposite = Integer.parseInt(sc.nextLine());
@@ -52,7 +53,7 @@ static void depositMoney(){
 }
 
 static void WithdrawMoney(){
-    System.out.println("______________________________\n3. Withdraw Money\n````````````````````````````````\n");
+    System.out.println("______________________________\n3. Withdraw Money\n````````````````````````````````");
 
     System.out.print("Enter Amount: ");
     int Withdraw = Integer.parseInt(sc.nextLine());
@@ -72,18 +73,18 @@ static void WithdrawMoney(){
     transactions[iterator][2] = ""+AccountBalance;
     transactions[iterator][3] = ""+dt.format(cr_dt);
 
-    System.out.println("Your New Balance: "+AccountBalance);
+    System.out.println("Your New Balance: "+AccountBalance);-
 }
 
 static void showTransactoins(){
-    System.out.println("_______________\n3. Withdraw Money\n````````````````\n");
+    System.out.println("_______________\n3. Withdraw Money\n````````````````");
 
-    System.out.println("transaction Ammount\tBalance\tDATE\t\tTIME");
+    System.out.println("transaction Ammount   Balance   DATE\t\t\tTIME");
     for(String[] s: transactions){
         if(s[0]==null){
             continue;
         }else{
-            System.out.println(s[0]+"\t"+s[1]+"\t"+s[2]+"\t"+s[3]);
+            System.out.printf("%-12s"+"%-10s"+"%-10s"+"%s\n",s[0],s[1],s[2],s[3]);
         }
     }
     System.out.println("--------------END-------------");
@@ -100,14 +101,15 @@ static void accountSummary(){
     public static void main(String[] args) {
         boolean flag = true;
 
+        InitializeTheCustomer();
+
         while(flag){
             System.out.println("------------MENU----------------");
-            System.out.println("1. Initialize the customer");
-            System.out.println("2. deposit money");
-            System.out.println("3. withdraw money");
-            System.out.println("4. print the transactions");
-            System.out.println("5. print account summary");
-            System.out.println("6. Exit");
+            System.out.println("1. deposit money");
+            System.out.println("2. withdraw money");
+            System.out.println("3. print the transactions");
+            System.out.println("4. print account summary");
+            System.out.println("5. Exit");
             System.out.println("--------------------------------");
             System.out.print("\nChoose option: ");
 
@@ -115,21 +117,18 @@ static void accountSummary(){
 
             switch(choice){
                 case 1:
-                    InitializeTheCustomer();
-                    break;
-                case 2:
                     depositMoney();
                     break;
-                case 3:
+                case 2:
                     WithdrawMoney();
                     break;
-                case 4:
+                case 3:
                     showTransactoins();
                     break;
-                case 5:
+                case 4:
                     accountSummary();
                     break;
-                case 6:
+                case 5:
                     flag = false;
                     break;
                 default:
