@@ -67,7 +67,7 @@ static void WithdrawMoney(){
     LocalDateTime cr_dt = LocalDateTime.now();
 
     iterator++;
-    transactions[iterator][0] = "Deposite";
+    transactions[iterator][0] = "Withdraw";
     transactions[iterator][1] = ""+Withdraw;
     transactions[iterator][2] = ""+AccountBalance;
     transactions[iterator][3] = ""+dt.format(cr_dt);
@@ -78,7 +78,7 @@ static void WithdrawMoney(){
 static void showTransactoins(){
     System.out.println("_______________\n3. Withdraw Money\n````````````````\n");
 
-    System.out.println("transaction Ammount\tBalance\tDATE\tTIME");
+    System.out.println("transaction Ammount\tBalance\tDATE\t\tTIME");
     for(String[] s: transactions){
         if(s[0]==null){
             continue;
