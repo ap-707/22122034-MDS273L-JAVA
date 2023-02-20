@@ -11,7 +11,7 @@ public class LAB4 {
     static String AccountHolder;
     static int AccountBalance;
 
-    static String[][] transactions = new String[100][4];
+    static String[][] transactions = new String[100][5];
     static int iterator = 0;
 
 //  ------------------User Defne Function---------------------
@@ -36,6 +36,7 @@ static void depositMoney(){
 
     System.out.print("Enter Amount: ");
     int deposite = Integer.parseInt(sc.nextLine());
+    int old_bal = AccountBalance;
     AccountBalance = AccountBalance + deposite;
 
 //    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
@@ -48,13 +49,14 @@ static void depositMoney(){
     transactions[iterator][1] = ""+deposite;
     transactions[iterator][2] = ""+AccountBalance;
     transactions[iterator][3] = ""+dt.format(cr_dt);
+    transactions[iterator][4] = ""+old_bal;
 
     System.out.println("Your New Balance: "+AccountBalance);
 }
 
 static void WithdrawMoney(){
     System.out.println("______________________________\n3. Withdraw Money\n````````````````````````````````");
-
+    int old_bal = AccountBalance;
     System.out.print("Enter Amount: ");
     int Withdraw = Integer.parseInt(sc.nextLine());
 
@@ -72,19 +74,20 @@ static void WithdrawMoney(){
     transactions[iterator][1] = ""+Withdraw;
     transactions[iterator][2] = ""+AccountBalance;
     transactions[iterator][3] = ""+dt.format(cr_dt);
+    transactions[iterator][4] = ""+old_bal;
 
-    System.out.println("Your New Balance: "+AccountBalance);-
+    System.out.println("Your New Balance: "+AccountBalance);
 }
 
 static void showTransactoins(){
     System.out.println("_______________\n3. Withdraw Money\n````````````````");
 
-    System.out.println("transaction Ammount   Balance   DATE\t\t\tTIME");
+    System.out.println("transaction Ammount   Old Balance New Balance DATE        TIME");
     for(String[] s: transactions){
         if(s[0]==null){
             continue;
         }else{
-            System.out.printf("%-12s"+"%-10s"+"%-10s"+"%s\n",s[0],s[1],s[2],s[3]);
+            System.out.printf("%-12s"+"%-10s"+"%-12s"+"%-12s"+"%s\n",s[0],s[1],s[4],s[2],s[3]);
         }
     }
     System.out.println("--------------END-------------");
