@@ -4,6 +4,8 @@ public class LAB1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
+//         collecting details.
+        
         System.out.println("Enter Employee's Detail:");
         System.out.print("Name :");
         String name = sc.nextLine();
@@ -28,41 +30,43 @@ public class LAB1 {
         System.out.print("Department :");
         String department = sc.nextLine();
 
-        String region = "";
+        String region = "";  // region will assign in further process.
 
         System.out.print("State :");
         String state_ = sc.nextLine();
 
         System.out.println("-------------------------------------------------------------------");
-        System.out.println("About this Employee");
+        System.out.println("About this Employee");   // Show details about employee.
         System.out.println("-------------------------------------------------------------------");
-
+        
+//         Define regions.
+        
         String[] north_states = {"Jammu & Kashmir", "Himachal Pradesh", "Punjab", "Uttarakhand", "Haryana", "Delhi", "Rajasthan", "Uttar Pradesh","UT Chandigarh"};
         String[] southern_states = {"Andhra Pradesh", "Karnataka", "Kerala", "Tamil Nadu", "Telangana"};
         String[] eastern_states = {"Arunachal Pradesh", "Assam", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Sikkim", "Tripura"};
         String[] west_states = {"Goa", "Gujarat", "Maharashtra", "Daman", "Diu", "Dadra Nagar Haveli"};
 
-
+        
         for (String s : north_states) {
-            if (state_.equalsIgnoreCase(s)) {
+            if (state_.equalsIgnoreCase(s)) {    // if state comes from north region then 'Nnrth' will assign to 'region' variable.
                 region = "North";
                 break;
             }
         }
-        for (String s : southern_states) {
-            if (state_.equalsIgnoreCase(s)) {
+        for (String s : southern_states) {     
+            if (state_.equalsIgnoreCase(s)) {    // if state comes from north region then 'South' will assign to 'region' variable.
                 region = "South";
                 break;
             }
         }
-        for (String s : eastern_states) {
-            if (state_.equalsIgnoreCase(s)) {
+        for (String s : eastern_states) {      
+            if (state_.equalsIgnoreCase(s)) {   // if state comes from north region then 'East' will assign to 'region' variable.
                 region = "East";
                 break;
             }
         }
         for (String s : west_states) {
-            if (state_.equalsIgnoreCase(s)) {
+            if (state_.equalsIgnoreCase(s)) {    // if state comes from north region then 'West' will assign to 'region' variable.
                 region = "West";
                 break;
             }
@@ -72,7 +76,7 @@ public class LAB1 {
         String[] MNCs = {"Facebook", "Google", "Microsoft", "Samsung", "IBM", "Apple"};
         String MNC = "";
         for (String s : MNCs) {
-            if (company.equalsIgnoreCase(s)) {
+            if (company.equalsIgnoreCase(s)) {   // if comapny variable contains any MNC company's name then it'll assign to 'MNC' named variable.
                 MNC = s;
                 break;
             }
@@ -81,7 +85,7 @@ public class LAB1 {
             }
         }
 
-        String G = gender;
+'        String G = gender;
 
         System.out.println("The employees' name is "+ name+ " and "+ ((G.equalsIgnoreCase("male"))?"he is ":"she is ") + ((G.equalsIgnoreCase("male"))?"Male":"Female") );
         System.out.println("The Employee" + name +" is from the "+ region + " states of India; Preferable work location is in " + state_);
