@@ -90,7 +90,7 @@ public class LAB1 {
         System.out.println("The employees' name is "+ name+ " and "+ ((G.equalsIgnoreCase("male"))?"he is ":"she is ") + ((G.equalsIgnoreCase("male"))?"Male":"Female") );
         System.out.println("The Employee" + name +" is from the "+ region + " states of India; Preferable work location is in " + state_);
 
-        if(MNC.equalsIgnoreCase("")){
+        if(MNC.equalsIgnoreCase("")){       // if MNC is empty means employee has never worked in MNCs.
             System.out.println("The employee " + name +" is working in "+ company + ".");
         }else{
             System.out.println("The employee " + name +" is working in Top MNC Companies.");
