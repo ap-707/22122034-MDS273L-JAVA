@@ -60,12 +60,16 @@ public class LAB2{
 						}
 					}
 
-					if (valiedName && ExistName == false) {
+					if (valiedName && ExistName == false) {			// if the condition is teue then add name into array.
 						arr[k++] = name;
 						System.out.println(name + " added into the list.");
 					}
 
-					System.out.println("Name: " + Arrays.toString(arr));
+					for(String s : arr ){
+						if(s == null){     				// Print the names.
+							System.out.print(a+",");
+						}
+					}
 
 					break;
 				}
@@ -79,7 +83,7 @@ public class LAB2{
 					sIndex = 0;
 					for (String s : arr) {
 						sIndex++;
-						if (search.equalsIgnoreCase(s)) {
+						if (search.equalsIgnoreCase(s)) {			// Searching the name.
 							System.out.println(search + " is in the list at " + sIndex + "th position");
 							break;
 						}
@@ -93,20 +97,11 @@ public class LAB2{
 					DeleteName = sc.nextLine();
 
 					for (int i = 0, p = 0; i < arr.length; i++) {
-						if (arr[i] == DeleteName) {
-							arr[i] = arr[arr.length-1];
+						if (arr[i] == DeleteName) {				// if the name is found, it will replaced by last name.
+							arr[i] = arr[arr.length-1];			// so the name will be removed from the array.
 						}
 					}
-//					int zz = 0;
-//					for(String s : arr){
-//						if (s  == DeleteName){
-//							continue;
-//						}else{
-//							newarr[zz++] = s;
-//						}
-//					}
 
-//					System.out.println("Array : " + Arrays.toString(newarr));
 					System.out.println("\n-----------------------------------");
 					System.out.println("Name Successfully Removed.");
 					for (int i = 0; i < k; i++) {
