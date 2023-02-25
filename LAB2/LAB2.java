@@ -6,11 +6,11 @@ public class LAB2{
 
 		int k = 0;
 
-		String[] arr = new String[1024];
-		String[] newarr = new String[arr.length-1];
+		String[] arr = new String[1024];  		// Defining fixed length array.
+		String[] newarr = new String[arr.length-1];	
 		boolean flag = true;
 
-		char[] specialChar = {'@','!','#','$','%','^','&','*','(',')','_',' ','+','='};
+		char[] specialChar = {'@','!','#','$','%','^','&','*','(',')','_',' ','+','='};   // special chrectors that should not be in the name.
 
 		String search;
 
@@ -19,7 +19,7 @@ public class LAB2{
 
 
 		do{
-			System.out.println("-----------------------------------");
+			System.out.println("-----------------------------------");	// menu
 			System.out.println("1.Enter a name.");
 			System.out.println("2.Search for a name.");
 			System.out.println("3.Remove a name");
@@ -42,20 +42,20 @@ public class LAB2{
 					String name = sc.nextLine();
 
 					for (char j : specialChar) {
-						if (name.contains(Character.toString(j))) {
+						if (name.contains(Character.toString(j))) {  			//if entered name contains any special charector, it'll show warning message.
 							System.out.println("Please enter valied Name.");
 							valiedName = false;
 							break;
 						} else {
-							valiedName = true;
+							valiedName = true;			// set valiedName true.
 						}
 					}
 
 					for (String s : arr) {
-						if (name.equalsIgnoreCase(s)) {
+						if (name.equalsIgnoreCase(s)) {			// if name already present in the name array, it'll shoe error message.
 							System.out.println(name + " already exist in the list.");
 							System.out.println("Please enter different name.");
-							ExistName = true;
+							ExistName = true; 			// set ExistName true.
 							break;
 						}
 					}
