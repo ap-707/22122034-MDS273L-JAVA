@@ -16,7 +16,9 @@ public class LAB4 {
 
 //  ------------------User Defne Function---------------------
 static void InitializeTheCustomer(){
-    System.out.println("______________________________\n1. Initialize the customer\n````````````````````````````````");
+    System.out.println("\n_______________________________________________________________\n" +
+                       "                         Initialize the customer\n" +
+                       "```````````````````````````````````````````````````````````````````");
 
     System.out.print("\nEnter customer name:");
     AccountHolder = sc.nextLine();
@@ -32,7 +34,9 @@ static void InitializeTheCustomer(){
 }
 
 static void depositMoney(){
-    System.out.println("______________________________\n2. Deposit Money\n````````````````````````````````");
+    System.out.println("\n_______________________________________________________________\n" +
+                       "                            Deposit Money\n" +
+                       "```````````````````````````````````````````````````````````````````");
 
     System.out.print("Enter Amount: ");
     int deposite = Integer.parseInt(sc.nextLine());
@@ -43,6 +47,8 @@ static void depositMoney(){
     DateTimeFormatter dt = DateTimeFormatter.ofPattern("yyyy/MM/dd    HH:mm:ss");
     LocalDateTime cr_dt = LocalDateTime.now();
 
+
+    // record transactions drtails into 2D array.
 
     iterator++;
     transactions[iterator][0] = "Deposite";
@@ -55,7 +61,10 @@ static void depositMoney(){
 }
 
 static void WithdrawMoney(){
-    System.out.println("______________________________\n3. Withdraw Money\n````````````````````````````````");
+    System.out.println("\n_______________________________________________________________\n" +
+                       "                            Withdraw Money\n" +
+                       "```````````````````````````````````````````````````````````````````");
+
     int old_bal = AccountBalance;
     System.out.print("Enter Amount: ");
     int Withdraw = Integer.parseInt(sc.nextLine());
@@ -69,6 +78,8 @@ static void WithdrawMoney(){
     DateTimeFormatter dt = DateTimeFormatter.ofPattern("yyyy/MM/dd    HH:mm:ss");
     LocalDateTime cr_dt = LocalDateTime.now();
 
+    // record transactions drtails into 2D array.
+
     iterator++;
     transactions[iterator][0] = "Withdraw";
     transactions[iterator][1] = ""+Withdraw;
@@ -79,10 +90,13 @@ static void WithdrawMoney(){
     System.out.println("Your New Balance: "+AccountBalance);
 }
 
+// show transaction function.
 static void showTransactoins(){
-    System.out.println("_______________\n3. Withdraw Money\n````````````````");
+    System.out.println("\n_______________________________________________________________\n" +
+                       "                          Transactions\n" +
+                       "```````````````````````````````````````````````````````````````````");
 
-    System.out.println("transaction Ammount   Old Balance New Balance DATE        TIME");
+    System.out.println("Transaction Ammount   Old_Balance New_Balance DATE          TIME");
     for(String[] s: transactions){
         if(s[0]==null){
             continue;
@@ -90,9 +104,10 @@ static void showTransactoins(){
             System.out.printf("%-12s"+"%-10s"+"%-12s"+"%-12s"+"%s\n",s[0],s[1],s[4],s[2],s[3]);
         }
     }
-    System.out.println("--------------END-------------");
+    System.out.println("-------------------------------END--------------------------------");
 }
 
+// Account smmary function.
 static void accountSummary(){
     System.out.println("Account Holder Name: "+AccountHolder);
     System.out.println("Account Number:"+AccountNumber);
@@ -106,8 +121,8 @@ static void accountSummary(){
 
         InitializeTheCustomer();
 
-        while(flag){
-            System.out.println("------------MENU----------------");
+        while(flag){                // Menu
+            System.out.println("\n------------MENU----------------");
             System.out.println("1. deposit money");
             System.out.println("2. withdraw money");
             System.out.println("3. print the transactions");
