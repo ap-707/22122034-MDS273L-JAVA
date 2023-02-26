@@ -1,15 +1,18 @@
 import java.util.Scanner;
 
 public class LAB3{
+
+    // Defining global variable
     static int size = 1024;
     static String[][] details = new String[size][5];
     static int count = 0;
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+
         int option;
         do {
-            System.out.println("Menu:");
+            System.out.println("Menu:");            // Menu
             System.out.println("1. Enter student details");
             System.out.println("2. Display student details");
             System.out.println("3. Search student details");
@@ -35,10 +38,13 @@ public class LAB3{
         } while (option != 4);
     }
 
+    // Colectiong Details.
     public static void collectDetails() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter student name: ");
         String name = sc.nextLine();
+
+        // Collecting data into 2 dimentional array.
 
                 details[count][0] = name;
                 System.out.print("Enter register number: ");
@@ -56,52 +62,49 @@ public class LAB3{
 
     }
 
+    // Display all student's details in tabular formate.
     public static void displayDetails() {
-        System.out.println("Name\t\tRegister Number\t\tEmail\t\t\tClass\t\tDepartment");
+        System.out.println("_____________________________________________________________________________");
+        System.out.println("Name        Register Number Email               Class      Department");     // creating column headings in output
+        System.out.println("````````````````````````````````````````````````````````````````````````````");
         for (String[] s : details) {
-            System.out.println(s[0] + "\t\t" + s[1] + "\t\t" + s[2] + "\t\t" + s[3] + "\t\t" + s[4]);
             if(s[1] == null){
                 break;
+            }else{
+                System.out.printf("%-12s%-16s%-20s%-11s%s\n",s[0],s[1],s[2],s[3],s[4]);   // print each row using printf function. it's same as we were using in  c language.
             }
         }
+        System.out.println("_____________________________________________________________________________");
+
     }
 
+    // Search student by Register number
     public static void searchDetails() {
         Scanner sc = new Scanner(System.in);
+        boolean regFound = false;
+
         System.out.print("Enter student Register number: ");
-        String Reg = sc.nextLine();
 
-        for(String[] s : details){
+        String Reg = sc.nextLine(); // taking input from user.
+        System.out.println("_____________________________________________________________________________");
+        System.out.println("Name        Register Number Email               Class      Department");     // creating column headings in output
+        System.out.println("````````````````````````````````````````````````````````````````````````````");
+
+        for (String[] s : details) {
+
             if(Reg.equalsIgnoreCase(s[1])){
-                System.out.println("Name\t\tRegister Number\t");
-                System.out.println(s[0]+"\t\t"+s[1]+"\t");
+
+                System.out.printf("%-12s%-16s%-20s%-11s%s\n",s[0],s[1],s[2],s[3],s[4]);   // print each row using printf function. it's same as we were using in  c language.
                 break;
-            }else{
-                System.out.println("Details for the student with the Register number '" + Reg + "' not found!");
+
+            }
+
+            if(regFound){
+                System.out.println(Reg + "' not found!");
                 break;
             }
         }
-
+        System.out.println("_____________________________________________________________________________");
+        
     }
-
-    public static void searchDetails(String reg) {
-        for(String[] s: details){
-            if (s[1] == reg) {
-                System.out.println("Details of the student '" + reg + "':");
-                System.out.println("Name: " + s[0]);
-                System.out.println("Register Number: " + s[1]);
-                System.out.println("Email: " + s[2]);
-                System.out.println("Class: " + s[3]);
-                System.out.println("Department: " + s[4]);
-            } else {
-
-                System.out.println("No student with the name '" + reg + "' was found.");
-
-            }
-        }
-
-    }
-
-
-
 }
