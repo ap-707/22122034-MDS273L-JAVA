@@ -5,7 +5,7 @@ import java.io.FileWriter;
 class Student {
 
     Scanner sc = new Scanner(System.in);
-    String name, email, clas, department, inputData, phone, reg;
+    String name, email, clas, department, inputData, inputData2, phone, reg;
 
     public Student(String name2, String email2, String phone2, String reg2, String clas2, String department2) {
         this.reg = reg2;
@@ -18,7 +18,10 @@ class Student {
 
     void saveIntoFile() {
         // file creartion
-        String FileName = "D:\\ASHISH\\Study Material\\JAVA\\CLASSES\\Students" + name + "_" + reg + ".txt";
+        // String FileName = "D:\\ASHISH\\Study Material\\JAVA\\CLASSES\\Students\\" +
+        // name + "_" + reg + ".txt";
+        String FileName = "D:\\ASHISH\\Study Material\\JAVA\\CLASSES\\Students\\" + reg + ".txt";
+
         try {
             System.out.print("Enter new file name: ");
 
@@ -37,13 +40,17 @@ class Student {
                     inputData = "=========================================================================\n" +
                             "NAME       EMAIL               PHONE        REG.NO.        DEPARTMENT\n" +
                             "--------------------------------------------------------------------------\n" +
-                            "%-11s%-20s%-13d%-15d%d" + name + email + phone + reg + department;
+                            String.format("%-11s", name) +
+                            String.format("%-20s", email) +
+                            String.format("%-13s", phone) +
+                            String.format("%-15s", reg) +
+                            String.format("%-20s", department);
 
                     fw.write(inputData);
 
-                    System.out.println("Data Saved...");
-
                     fw.close();
+
+                    System.out.println("Data Saved...");
                 } else {
                     System.out.println("Error in file creation...");
                 }
@@ -73,22 +80,21 @@ public class lab6 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Student[] s = new Student[100];
-        int counter = 0, choice, updateChoice, r, updateReg;
+        int choice, updateChoice;
         boolean flag = true;
 
-        String name, phone, email, clas, department, inputData, reg;
+        String name, phone, email, clas, department, reg, r, updateReg;
 
         while (flag) {
-            System.out.println("=============MENU===============");
+            System.out.println("\n=============MENU===============");
             System.out.println("1.ADD A STUDENT");
             System.out.println("2.SEARCH STUDENT");
             System.out.println("3.UPDATE THE DETAIL OF STUDENT");
             System.out.println("4.DISPLAY ALL STUDENTS");
             System.out.println("=================================");
 
+            System.out.print("Choose any one: ");
             choice = Integer.parseInt(sc.nextLine());
-
-            System.out.println("Choose any one: ");
 
             switch (choice) {
                 case 1: {
@@ -117,41 +123,55 @@ public class lab6 {
                 }
 
                 case 2: {
-                    System.out.println("=============SEARCH STUDENT=============");
+                    System.out.println("\n=============================SEARCH STUDENT=============================");
                     System.out.print("ENTER REG. NO.: ");
-                    r = Integer.parseInt(sc.nextLine());
-                    System.out.println("=========================================================================");
+                    r = sc.nextLine();
 
-                    System.out.println("NAME       EMAIL               PHONE        REG.NO.        DEPARTMENT");
-                    System.out.println("--------------------------------------------------------------------------");
-                    for (int i = 0; i <= s.length; i++) {
-                        if (s[i] != null) {
-                            if (s[i].reg.equals(r)) {
-                                System.out.printf("%-11s%-20s%-13d%-15d%d" +
-                                        s[i].name,
-                                        s[i].email,
-                                        s[i].phone,
-                                        s[i].reg,
-                                        s[i].department);
-                            }
+                    System.out.println(
+                            "====================================================================================");
+                    System.out.println(
+                            "NAME       EMAIL                              PHONE        REG.NO.        DEPARTMENT");
+                    System.out.println(
+                            "------------------------------------------------------------------------------------");
+
+                    for (int i = 0; i <= s.length - 1; i++) {
+                        // for (Student i : s) {
+                        // if (s[i].reg.equals(r) && s[i] != null) {
+                        // if (s[i].reg == r) {
+
+                        if (s[i] != null && s[i].reg == r) {
+                            System.out.printf("%-11s" + "%-35s" + "%-13s" + "%-15s" + "%s\n",
+                                    s[i].name,
+                                    s[i].email,
+                                    s[i].phone,
+                                    s[i].reg,
+                                    s[i].department);
+                            break;
                         }
-                        System.out.println("=========================================================================");
-                        break;
+
+                        // break;
+                        // }
+
+                        // }
+
                     }
+                    System.out.println(
+                            "\n========================================================================================");
+                    break;
                 }
 
                 case 3: {
                     System.out.print("ENTER REG.NO.:");
-                    updateReg = Integer.parseInt(sc.nextLine());
+                    updateReg = sc.nextLine();
 
-                    System.out.println("1.NAME");
-                    System.out.println("2.EMAIL");
-                    System.out.println("3.PHONE");
-                    System.out.println("4.REG. NO.");
-                    System.out.println("5.CLASS");
-                    System.out.println("6.DEPARTMENT");
+                    System.out.println("\t1.NAME");
+                    System.out.println("\t2.EMAIL");
+                    System.out.println("\t3.PHONE");
+                    System.out.println("\t4.REG. NO.");
+                    System.out.println("\t5.CLASS");
+                    System.out.println("\t6.DEPARTMENT");
 
-                    System.out.println("what you want to update:");
+                    System.out.println("What you want to Update:");
                     updateChoice = Integer.parseInt(sc.nextLine());
 
                     switch (updateChoice) {
@@ -160,6 +180,7 @@ public class lab6 {
                             for (Student i : s) {
                                 if (i.reg.equals(updateReg)) {
                                     i.name = sc.nextLine();
+                                    break;
                                 }
                             }
                             System.out.println("✅NAME UPDATETED !!");
@@ -214,7 +235,7 @@ public class lab6 {
                             System.out.print("Enter DEPARTMENT:");
                             for (Student i : s) {
                                 if (i.reg.equals(updateReg)) {
-                                    i.clas = sc.nextLine();
+                                    i.department = sc.nextLine();
                                 }
                             }
                             System.out.println("✅DEPARTMENT UPDATETED !!");
@@ -228,15 +249,34 @@ public class lab6 {
                             break;
                         }
                     }
+
+                    break;
                 }
 
                 case 4: {
-                    System.out.println("=========================================================================");
-                    System.out.println("NAME       EMAIL               PHONE        REG.NO.        DEPARTMENT");
-                    System.out.println("--------------------------------------------------------------------------");
-                    for (Student i : s) {
-                        System.out.printf("%-11s%-20s%-13d%-15d%d" + i.name, i.email, i.phone, i.reg, i.department);
+                    System.out.println(
+                            "====================================================================================");
+                    System.out.println(
+                            "NAME       EMAIL                              PHONE        REG.NO.        DEPARTMENT");
+                    System.out.println(
+                            "------------------------------------------------------------------------------------");
+
+                    try {
+                        for (int i = 0; i <= s.length; i++) {
+                            if (s[i] != null) {
+                                System.out.printf("%-4d" + "%-11s" + "%-35s" + "%-13s" + "%-15s" + "%s\n",
+                                        i + 1,
+                                        s[i].name,
+                                        s[i].email,
+                                        s[i].phone,
+                                        s[i].reg,
+                                        s[i].department);
+                            }
+
+                        }
+                    } catch (Exception e) {
                     }
+
                     System.out.println("=========================================================================");
                     break;
                 }
@@ -247,6 +287,6 @@ public class lab6 {
             }
 
         }
-
+        sc.close();
     }
 }
