@@ -18,9 +18,9 @@ class Student {
 
     void saveIntoFile() {
         // file creartion
-        String FileName = name + "_" + reg + ".txt";
+        String FileName = "D:\\ASHISH\\Study Material\\JAVA\\CLASSES\\Students" + name + "_" + reg + ".txt";
         try {
-            System.out.print("Emnter new file name: ");
+            System.out.print("Enter new file name: ");
 
             File file = new File(FileName);
 
@@ -31,28 +31,25 @@ class Student {
 
                 if (file.createNewFile()) {
                     System.out.println("file is created...");
+
+                    FileWriter fw = new FileWriter(FileName);
+
+                    inputData = "=========================================================================\n" +
+                            "NAME       EMAIL               PHONE        REG.NO.        DEPARTMENT\n" +
+                            "--------------------------------------------------------------------------\n" +
+                            "%-11s%-20s%-13d%-15d%d" + name + email + phone + reg + department;
+
+                    fw.write(inputData);
+
+                    System.out.println("Data Saved...");
+
+                    fw.close();
                 } else {
                     System.out.println("Error in file creation...");
                 }
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
-        }
-
-        // file writing
-
-        try {
-            FileWriter fw = new FileWriter(FileName);
-            inputData = "=========================================================================\n" +
-                    "NAME       EMAIL               PHONE        REG.NO.        DEPARTMENT\n" +
-                    "--------------------------------------------------------------------------\n" +
-                    "%-11s%-20s%-13d%-15d%d" + name + email + phone + reg + department;
-
-            fw.write(inputData);
-            System.out.println("Data saved...");
-            fw.close();
-        } catch (Exception e) {
-            System.out.println("ERROR: " + e);
         }
 
     }
@@ -107,7 +104,15 @@ public class lab6 {
                     clas = sc.nextLine();
                     System.out.print("DEPARTMENT: ");
                     department = sc.nextLine();
-                    s[counter] = new Student(name, email, phone, reg, clas, department);
+                    Student temp = new Student(name, email, phone, reg, clas, department);
+                    for (int i = 0; i < s.length; i++) {
+                        if (s[i] == null) {
+                            s[i] = temp;
+                            s[i].saveIntoFile();
+                            break;
+                        }
+                    }
+
                     break;
                 }
 
@@ -120,9 +125,7 @@ public class lab6 {
                     System.out.println("NAME       EMAIL               PHONE        REG.NO.        DEPARTMENT");
                     System.out.println("--------------------------------------------------------------------------");
                     for (int i = 0; i <= s.length; i++) {
-                        if (s[i] == null) {
-                            System.out.println("object is null");
-                        } else {
+                        if (s[i] != null) {
                             if (s[i].reg.equals(r)) {
                                 System.out.printf("%-11s%-20s%-13d%-15d%d" +
                                         s[i].name,
@@ -132,9 +135,9 @@ public class lab6 {
                                         s[i].department);
                             }
                         }
+                        System.out.println("=========================================================================");
+                        break;
                     }
-                    System.out.println("=========================================================================");
-                    break;
                 }
 
                 case 3: {
