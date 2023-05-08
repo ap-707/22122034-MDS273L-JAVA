@@ -10,7 +10,7 @@ Present your results in the appropriate format and write the results in a file.
 
               MIN      MAX      MEAN      MEDIAN     MODE
 SepalLength   4.30     7.90     5.84      5.80       5.90      
-SepalWidth    2.00     4.40     5.86      3.00       3.00
+SepalWidth    2.00     4.40     5.86      3.00       3.00 
 PetalLength   1.00     6.90     5.88      4.40       5.10      
 PetalWidth    0.10     2.50     5.86      1.30       1.80
 
