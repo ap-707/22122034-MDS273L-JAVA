@@ -8,4 +8,5 @@ Present your results in the appropriate format and write the results in a file.
 
 ================== OUTPUT ======================
 
-  <img src="C:\Users\ashish\Pictures\Screenshot 2023-05-08 195439" alt="output image" title="Optional title">
+![image](https://user-images.githubusercontent.com/89178613/236850862-c8d98618-51d7-40b0-92d3-96ee07b1b942.png)
+
