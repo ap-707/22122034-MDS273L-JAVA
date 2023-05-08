@@ -8,4 +8,4 @@ Present your results in the appropriate format and write the results in a file.
 
 ================== OUTPUT ======================
 
-  ![Uploading image.png…]()
+  <img src="C:\Users\ashish\Pictures\Screenshot 2023-05-08 195439" alt="output image" title="Optional title">
