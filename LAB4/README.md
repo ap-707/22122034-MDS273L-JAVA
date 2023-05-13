@@ -38,4 +38,6 @@ To print account summary
 ===================OUTPUT=======================
 
 ![image](https://github.com/ap-707/22122034-MDS273L-JAVA/assets/89178613/5a869f80-e616-4f20-a9d7-a11a378d64fd)
+![image](https://github.com/ap-707/22122034-MDS273L-JAVA/assets/89178613/24d504f3-1c2d-4249-ac6c-4ff5c099e8c9)
+
 
