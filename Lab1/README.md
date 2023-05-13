@@ -5,6 +5,11 @@ Assume that you can divide the states among India into different regions (North,
 Identify if the employee belongs to the top MNC Companies (Facebook, Google, Microsoft, Samsung, IBM, Apple); if so, print a message "The employee is working in Top MNC Companies".
 
 Note: Your program should be neatly organized, with appropriate comments, variable names, proper input output formatting, and necessary validations.
+  
+  
+  ![image](https://github.com/ap-707/22122034-MDS273L-JAVA/assets/89178613/a281d166-492d-47e8-bdb6-6c174e7dcaff)
+
+  
 
 -------------------------OUTPUT----------------------
   
