@@ -48,3 +48,17 @@ Save the details of each student in a file, with the student name as filename.
 
 
 Note: Make use of functions to implement the menu options.
+
+
+============================FLOWCHART============================
+
+![image](https://github.com/ap-707/22122034-MDS273L-JAVA/assets/89178613/494d900d-135d-4b53-9834-a253d6e313cf)
+
+
+
+
+===========================OUTPUT===============================
+
+![image](https://github.com/ap-707/22122034-MDS273L-JAVA/assets/89178613/8cf07625-9931-4b36-adee-b1750f8e67b2)
+![image](https://github.com/ap-707/22122034-MDS273L-JAVA/assets/89178613/18559f0d-842a-4a4f-953f-59be1c458b6f)
+![image](https://github.com/ap-707/22122034-MDS273L-JAVA/assets/89178613/7657e05f-1f56-45dc-9105-c69504c2deae)
