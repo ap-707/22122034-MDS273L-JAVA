@@ -39,3 +39,13 @@ Plan your program with a flow chart before starting with coding.
 
 Since you are using functions, plan what should be the returning values and how to implement them.
 
+================Flow Chart ================
+
+![image](https://github.com/ap-707/22122034-MDS273L-JAVA/assets/89178613/b0c56a18-6af9-4fcd-bc7c-b846525fabe0)
+
+=============== Output ===================
+
+
+![image](https://github.com/ap-707/22122034-MDS273L-JAVA/assets/89178613/9a9969af-2ec0-4917-b5c5-c4712a1877a4)
+![image](https://github.com/ap-707/22122034-MDS273L-JAVA/assets/89178613/24c03b8f-2c06-41fd-9cb5-a917779ff83f)
+
