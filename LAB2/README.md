@@ -32,55 +32,110 @@ Format your results properly!!
 
 
 ----------------------------------                                                                                   
+
 1.Enter a name.
+
 2.Search for a name.
+
 3.Remove a name
+
 0.Exit
+
 -----------------------------------
+
 Enter Your Choice:1
+
 Enter the name:
+
 Ashish
+
 Ashish added into the list.
+
 Name: [Ashish]
+
 -----------------------------------
+
 1.Enter a name.
+
 2.Search for a name.
+
 3.Remove a name
+
 0.Exit
+
+
 -----------------------------------
+
 Enter Your Choice:1
+
 Enter the name:
+
 Darshan
+
 Darshan added into the list.
+
 Name: [Ashish, Darshan]
+
 -----------------------------------
+
+
 1.Enter a name.
+
 2.Search for a name.
+
 3.Remove a name
+
 0.Exit
+
 -----------------------------------
+
 Enter Your Choice:2
+
 Search: Ashish
+
 Searching for a name...
+
 Ashish is in the list at 1th position
+
 -----------------------------------
+
 1.Enter a name.
+
 2.Search for a name.
+
 3.Remove a name
+
 0.Exit
+
 -----------------------------------
+
 Enter Your Choice:3
+
 Enter name: Darshan
+
 -----------------------------------
+
 Name Successfully Removed.
+
 Ashish,
+
 -----------------------------------
+
 -----------------------------------
+
 1.Enter a name.
+
 2.Search for a name.
+
 3.Remove a name
+
 0.Exit
+
 -----------------------------------
+
 Enter Your Choice:0
+
+
+
 
 
